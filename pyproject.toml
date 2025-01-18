@@ -1,0 +1,14 @@
+[build-system]
+requires = ["flit"]
+build-backend = "flit.buildapi"
+
+[project]
+name = "topsis_Akhil_102203565"
+authors = [{name = "Akhil Goyal", email = "goyalakhil06022004@gmail.com"}]
+description = "A Python package for TOPSIS"
+readme = "README.md"
+license = {file = "LICENSE"}
+classifiers = ["License :: OSI Approved :: MIT License"]
+dependencies = ["numpy", "pandas"]
+dynamic = ["version"]
+
