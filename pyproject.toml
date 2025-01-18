@@ -4,8 +4,15 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "topsis_Akhil_102203565"
-authors = []
+version = "0.1.0"  # Added a static version
+description = "A Python package to implement the TOPSIS decision-making method"
+authors = [{name = "Akhil", email = "goyalakhil06022004@gmail.com"}]  # Add your actual details
 readme = "README.md"
 license = {file = "LICENSE"}
-classifiers = ["License :: OSI Approved :: MIT License"]
-dynamic = ["version", "description"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent"
+]
+dependencies = ["numpy", "pandas"]  # Added dependencies
+
