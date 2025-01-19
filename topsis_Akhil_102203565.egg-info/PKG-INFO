@@ -1,6 +1,6 @@
 Metadata-Version: 2.2
 Name: topsis_Akhil_102203565
-Version: 2.0.0
+Version: 3.0.0
 Summary: A Python package for TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) algorithm
 Home-page: https://github.com/YOUR_GITHUB_USERNAME/topsis_Akhil_102203565
 Author: Akhil Goyal
@@ -13,6 +13,7 @@ Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: numpy
 Requires-Dist: pandas
+Requires-Dist: openpyxl
 Dynamic: author
 Dynamic: author-email
 Dynamic: classifier

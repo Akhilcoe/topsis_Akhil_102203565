@@ -6,7 +6,7 @@ with open("README.md", "r", encoding="utf-8") as f:
 
 setup(
     name="topsis_Akhil_102203565",
-    version="2.0.0",
+    version="3.0.0",
     description="A Python package for TOPSIS (Technique for Order Preference by Similarity to Ideal Solution) algorithm",
     long_description=long_description,
     long_description_content_type="text/markdown",  # Ensure correct content type
@@ -14,11 +14,20 @@ setup(
     author_email="goyalakhil06022004@gmail.com",
     url="https://github.com/YOUR_GITHUB_USERNAME/topsis_Akhil_102203565",  # Update this
     packages=find_packages(),
-    install_requires=["numpy", "pandas"],
+    install_requires=[
+        "numpy",
+        "pandas",
+        "openpyxl"
+    ],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
+    entry_points={
+        "console_scripts": [
+            "topsis-cli=topsis_Akhil_102203565.main:main",
+        ],
+    },
 )

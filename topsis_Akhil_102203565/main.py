@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import argparse
+import sys
 
 def topsis(data_file, weights, impacts, result_file):
     try:
@@ -10,7 +12,7 @@ def topsis(data_file, weights, impacts, result_file):
         if df.shape[1] < 3:
             raise ValueError("Input file must contain at least three columns.")
         
-        if df.iloc[:, 1:].applymap(lambda x: isinstance(x, (int, float))).all().all() == False:
+        if not df.iloc[:, 1:].applymap(lambda x: isinstance(x, (int, float))).all().all():
             raise ValueError("All columns except the first must contain numeric values.")
 
         # Convert weights and impacts
@@ -45,9 +47,24 @@ def topsis(data_file, weights, impacts, result_file):
         df["Topsis Score"] = topsis_score
         df["Rank"] = topsis_score.argsort()[::-1] + 1
 
-        # Save result
-        df.to_csv(result_file, index=False)
+        # Save result as Excel file
+        df.to_excel(result_file, index=False)
         print(f"Results saved to {result_file}")
 
     except Exception as e:
         print(f"Error: {e}")
+        sys.exit(1)
+
+
+def main():
+    parser = argparse.ArgumentParser(description="TOPSIS implementation in Python")
+    parser.add_argument("data_file", help="Path to input CSV file")
+    parser.add_argument("weights", help="Comma-separated list of weights")
+    parser.add_argument("impacts", help="Comma-separated list of impacts")
+    parser.add_argument("result_file", help="Path to save the results (Excel file)")
+    args = parser.parse_args()
+
+    topsis(args.data_file, args.weights, args.impacts, args.result_file)
+
+if __name__ == "__main__":
+    main()
